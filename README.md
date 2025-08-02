@@ -56,27 +56,33 @@ JWT_SECRET=sua_chave_secreta
 
 uvicorn main:app --reload
 
+---
+
 📡 Endpoints Principais
 
 A documentação interativa da API está disponível em:
 http://localhost:8000/docs
+
+---
 
 🧪 Testes
 
 Execute os testes com:
 pytest
 
+---
+
 📄 Licença
 
 Este projeto está licenciado sob a MIT License – veja o arquivo <arquivo>
+
+---
 
 📬 Contato
 
 Para dúvidas, sugestões ou parcerias, entre em contato:
 - Renato – renatodicmachado@gmail.com
 - [Linkedin](https://www.linkedin.com/in/renatodicmachado/)
-
-
 
 
 
