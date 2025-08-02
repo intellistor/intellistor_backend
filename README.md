@@ -23,28 +23,25 @@ O backend da Intellistor é responsável por:
 - **Docker** para empacotamento e deploy
 - **JWT** para autenticação segura
 - **Swagger/OpenAPI** para documentação automática das APIs
+
 ---
 
 ## 📦 Instalação
 
-### 1. Clone o repositório
-
-```bash
+````bash
+1. Clone o repositório
 git clone https://github.com/seu-usuario/intellistor-backend.git
 cd intellistor-backend
 
-### 2. Crie e ative o ambiente virtual
-
+2. Crie e ative o ambiente virtual
 python -m venv venv
 source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate     # Windows
 
-### 3. Instale as dependências
-
+3. Instale as dependências
 pip install -r requirements.txt
 
-### 4. Configure as variáveis de ambiente
-
+4. Configure as variáveis de ambiente
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=seu_usuario
@@ -52,37 +49,32 @@ DB_PASSWORD=sua_senha
 DB_NAME=intellistor
 JWT_SECRET=sua_chave_secreta
 
-### 5. Execute a aplicação
-
+5. Execute a aplicação
 uvicorn main:app --reload
 
----
+````
 
-📡 Endpoints Principais
+## 📡 Endpoints Principais
 
 A documentação interativa da API está disponível em:
 http://localhost:8000/docs
 
 ---
 
-🧪 Testes
+## 🧪 Testes
 
-Execute os testes com:
-pytest
-
----
-
-📄 Licença
-
-Este projeto está licenciado sob a MIT License – veja o arquivo <arquivo>
+Execute os testes com: **pytest**
 
 ---
 
-📬 Contato
+## 📄 Licença
+
+Este projeto está licenciado sob a MIT License – veja o [licença](#)
+
+---
+
+## 📬 Contato
 
 Para dúvidas, sugestões ou parcerias, entre em contato:
-- Renato – renatodicmachado@gmail.com
+- Renato de Carvalho Machado – renatodicmachado@gmail.com
 - [Linkedin](https://www.linkedin.com/in/renatodicmachado/)
-
-
-
