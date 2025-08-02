@@ -28,30 +28,78 @@ O backend da Intellistor é responsável por:
 
 ## 📦 Instalação
 
+### 1. Clone o repositório
 ````bash
-1. Clone o repositório
 git clone https://github.com/seu-usuario/intellistor-backend.git
 cd intellistor-backend
+````
 
-2. Crie e ative o ambiente virtual
+### 2. Crie e ative o ambiente virtual
+````bash
 python -m venv venv
 source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate     # Windows
+````
 
-3. Instale as dependências
+### 3. Instale as dependências
+````bash
 pip install -r requirements.txt
+````
 
-4. Configure as variáveis de ambiente
+### 4. Configure as variáveis de ambiente
+````bash
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=seu_usuario
 DB_PASSWORD=sua_senha
 DB_NAME=intellistor
 JWT_SECRET=sua_chave_secreta
+````
 
-5. Execute a aplicação
+### 5. Configurar o MySQL localmente
+Se você ainda não tem o MySQL instalado, pode usar Docker para subir um container:
+````bash
+docker run --name intellistor-mysql \
+  -e MYSQL_ROOT_PASSWORD=rootpass \
+  -e MYSQL_DATABASE=intellistor \
+  -e MYSQL_USER=intellistor_user \
+  -e MYSQL_PASSWORD=intellistor_pass \
+  -p 3306:3306 \
+  -d mysql:8.0
+````
+Obs.: Isso criará um banco chamado intellistor com o usuário e senha definidos acima.
+
+### 6. Execute a aplicação
+````bash
 uvicorn main:app --reload
+````
 
+### 7. (Alternativa) Executar com Docker Compose
+
+Se preferir rodar tudo com Docker, crie um arquivo docker-compose.yml com o seguinte conteúdo:
+````bash
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: intellistor
+      MYSQL_USER: intellistor_user
+      MYSQL_PASSWORD: intellistor_pass
+    ports:
+      - "3306:3306"
 ````
 
 ## 📡 Endpoints Principais
